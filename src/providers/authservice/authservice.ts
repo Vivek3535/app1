@@ -22,8 +22,8 @@ export class AuthService {
     } else {
       return Observable.create(observer => {
         // At this point make a request to your backend to make a real check!
-        let access = (credentials.password === "123456" && credentials.email === "test001@test.com");
-        this.currentUser = new User('Umesh', 'umesh@test.com');
+        let access = (credentials.password === "pass" && credentials.email === "admin@test.com");
+        this.currentUser = new User('Admin', 'admin@test.com');
         observer.next(access);
         observer.complete();
       });
@@ -31,10 +31,18 @@ export class AuthService {
   }
  
   public register(credentials) {
-    if (credentials.email === null || credentials.password === null) {
+   // console.log(credentials);
+    if (credentials.firstname === null || credentials.email === null || credentials.password === null || credentials.confirmpass === null) {
       return Observable.throw("Please insert credentials");
-    } else {
+    }
+    // else if(credentials.password != credentials.confirmpass)
+    // {
+      
+    //   return Observable.throw("Password does not match");
+    // } 
+    else {
       // At this point store the credentials to your backend!
+      //console.log(credentials);
       return Observable.create(observer => {
         observer.next(true);
         observer.complete();

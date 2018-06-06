@@ -7,7 +7,7 @@ import { LoginPage } from '../login/login';
 @IonicPage()
 @Component({
   selector: 'page-homescreen',
-  templateUrl: 'homescreen.html'
+  templateUrl: 'homescreen.html' 
 })
 export class HomescreenPage {
 

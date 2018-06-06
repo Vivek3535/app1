@@ -1,9 +1,6 @@
 import { AuthService } from './../../providers/authservice/authservice';
 import { Component } from '@angular/core';
 import { NavController, AlertController, IonicPage } from 'ionic-angular';
-import { LoginPage } from '../login/login';
-
- 
 @IonicPage()
 @Component({
   selector: 'page-register',
@@ -11,17 +8,20 @@ import { LoginPage } from '../login/login';
 })
 export class RegisterPage {
   createSuccess = false;
-  registerCredentials = { email: '', password: '' };
- 
-  constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) { }
- 
+  registerCredentials = { firstname: '', lastname: '', email: '', password: '',confirmpass: '',};
+constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) { } 
+ public backtomain()
+      {
+          this.nav.push('HomescreenPage');
+      }
   public register() {
-    this.auth.register(this.registerCredentials).subscribe(success => {
+     this.auth.register(this.registerCredentials).subscribe(success => {
+     
       if (success) {
         this.createSuccess = true;
-        //this.showPopup("Success", "Account created.");
-        this.nav.setRoot(LoginPage);
-        
+        this.showPopup("Success", "Account created.");
+        //this.nav.push('HomescreenPage');
+       
       } else {
         this.showPopup("Error", "Problem creating account.");
       }
@@ -42,11 +42,12 @@ export class RegisterPage {
           handler: data => {
             if (this.createSuccess) {
               this.nav.popToRoot();
+              this.nav.push('HomescreenPage');
             }
           }
         }
       ]
     });
-    alert.present();
+    alert.present(); 
   }
 }

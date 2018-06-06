@@ -1,5 +1,7 @@
 page-home {
-    .home {
-      background: #56CA96;
-    }
+    .home {background: #3c3b6e;}
+    .home h3, .home p{color: #fff; text-align: center;}
+    .home-banner img{width:100%; height: auto;}  
+    .home-blog p{color: #555; text-align: left;}
+    .home-blog .card {margin: 30px; width: calc(100% - 60px);}
   }

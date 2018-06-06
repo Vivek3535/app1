@@ -1,2 +1,0 @@
-# sfcDemoApp
-sfc-demoapp
